@@ -29,9 +29,9 @@ public class Driver {
             // and it will return with browser type, get it from config.prop as value.
             // We can control what browser is opened from outside our code
 
-   //depending on browserType that will be return from config.prop file,
-   // switch statement will determine the case and open matching browser
-            switch (browserType){//generate 'switch' to indicate all browsers type to choose
+            //depending on browserType that will be return from config.prop file,
+            // switch statement will determine the case and open matching browser
+            switch (browserType) {//generate 'switch' to indicate all browsers type to choose
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -64,6 +64,13 @@ public class Driver {
             }
         }
         return driver;//if not null then return with current 'driver'
+    }
+
+    public static void closeDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 
 }
