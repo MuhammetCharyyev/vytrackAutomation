@@ -13,101 +13,94 @@ import java.util.Arrays;
 import java.util.List;
 
 public class US1_Test_MainModules extends TestBase {
-//login as sales manager
+//testing modules as sales manager
     @Test
     public void verifying_modules_sales_man() {
         VytrackUtils.loginAsSalesManager();//called method to login from 'VytrackUtils'
       List<WebElement> moduleElements = Driver.getDriver().findElements
               ((By.xpath("//span[@class='title title-level-1']")) );
 
-      List<String> actualMuduleTexts = new ArrayList<>();
-
+      //creating ArrayList for all actual module elements
+      List<String> actualModuleTexts = new ArrayList<>();
+//iterating all module elements
         for (WebElement moduleElement : moduleElements) {
             String moduleElementText = moduleElement.getText();
-            actualMuduleTexts.add(moduleElementText);
+            //get text of all module elements
+            actualModuleTexts.add(moduleElementText);
+            //adding text of all module elements to our created ArrList
         }
-       // System.out.println("actualMuduleTexts = " + actualMuduleTexts);
-        //printed-> actualMuduleTexts = [Dashboards, Fleet, Customers, Sales, Activities, Marketing, Reports & Segments, System]
 
-  //  moduleElements.forEach(k->actualMuduleTexts.add(k.getText()));
+  //  moduleElements.forEach(w->actualModuleTexts.add(w.getText()));
     //same as above but more professional way to iterate each ModuleText
         // using the lambda expression
 
-        System.out.println("actualMuduleTexts = " + actualMuduleTexts);
-        List<String> expectedModuleTexts = new ArrayList<>(Arrays.asList(
-                "Dashboards",
-                "Fleet",
-                "Customers",
-                "Sales",
-                "Activities",
-                "Marketing",
-                "Reports & Segments",
-                "System"        ));
+        System.out.println("actualModuleTexts = " + actualModuleTexts);
 
-        Assert.assertEquals(actualMuduleTexts, expectedModuleTexts);
+  // creating ArrayList for all module elements as expected
+        List<String> expectedModuleTexts = new ArrayList<>(Arrays.asList(
+                "Dashboards", "Fleet", "Customers","Sales", "Activities",
+                "Marketing","Reports & Segments", "System" ));
+
+        Assert.assertEquals(actualModuleTexts, expectedModuleTexts);
     }
-    //login as store manager
+
+    //testing modules as store manager
     @Test
     public void verifying_modules_store_man() {
         VytrackUtils.loginAsStoreManager();//called method to login from 'VytrackUtils'
         List<WebElement> moduleElements = Driver.getDriver().findElements
                 ((By.xpath("//span[@class='title title-level-1']")) );
 
-        List<String> actualMuduleTexts = new ArrayList<>();
-
+        //creating ArrayList for all actual module elements
+        List<String> actualModuleTexts = new ArrayList<>();
+//iterating all module elements
         for (WebElement moduleElement : moduleElements) {
             String moduleElementText = moduleElement.getText();
-            actualMuduleTexts.add(moduleElementText);
+            //get text of all module elements
+            actualModuleTexts.add(moduleElementText);
+            //adding text of all module elements to our created ArrList
         }
-        // System.out.println("actualMuduleTexts = " + actualMuduleTexts);
-        //printed-> actualMuduleTexts = [Dashboards, Fleet, Customers, Sales, Activities, Marketing, Reports & Segments, System]
 
-        //  moduleElements.forEach(k->actualMuduleTexts.add(k.getText()));
+        //  moduleElements.forEach(w->actualModuleTexts.add(w.getText()));
         //same as above but more professional way to iterate each ModuleText
         // using the lambda expression
 
-        System.out.println("actualMuduleTexts = " + actualMuduleTexts);
+        System.out.println("actualModuleTexts = " + actualModuleTexts);
+
+        // creating ArrayList for all module elements as expected
         List<String> expectedModuleTexts = new ArrayList<>(Arrays.asList(
-                "Dashboards",
-                "Fleet",
-                "Customers",
-                "Sales",
-                "Activities",
-                "Marketing",
-                "Reports & Segments",
-                "System"        ));
+                "Dashboards", "Fleet", "Customers","Sales", "Activities",
+                "Marketing","Reports & Segments", "System" ));
 
-        Assert.assertEquals(actualMuduleTexts, expectedModuleTexts);
-
+        Assert.assertEquals(actualModuleTexts, expectedModuleTexts);
     }
-//login as driver
+
+//testing modules as driver
     @Test
     public void verifying_modules_driver() {
         VytrackUtils.loginAsDriver();//called method to login from 'VytrackUtils'
         List<WebElement> moduleElements = Driver.getDriver().findElements
                 ((By.xpath("//span[@class='title title-level-1']")) );
 
-        List<String> actualMuduleTexts = new ArrayList<>();
-
+        //creating ArrayList for all actual module elements
+        List<String> actualModuleTexts = new ArrayList<>();
+//iterating all module elements
         for (WebElement moduleElement : moduleElements) {
             String moduleElementText = moduleElement.getText();
-            actualMuduleTexts.add(moduleElementText);
+            //get text of all module elements
+            actualModuleTexts.add(moduleElementText);
+            //adding text of all module elements to our created ArrList
         }
-        // System.out.println("actualMuduleTexts = " + actualMuduleTexts);
-        //printed-> actualMuduleTexts = [Fleet, Customers, Activities, System]
 
-        //  moduleElements.forEach(k->actualMuduleTexts.add(k.getText()));
+        //  moduleElements.forEach(w->actualModuleTexts.add(w.getText()));
         //same as above but more professional way to iterate each ModuleText
         // using the lambda expression
 
-        System.out.println("actualMuduleTexts = " + actualMuduleTexts);
+        System.out.println("actualModuleTexts = " + actualModuleTexts);
         List<String> expectedModuleTexts = new ArrayList<>(Arrays.asList(
-                "Fleet",
-                "Customers",
-                "Activities",
-                "System"        ));
+                "Fleet", "Customers","Activities","System" ));
 //for drivers module should be shorter
-        Assert.assertEquals(actualMuduleTexts, expectedModuleTexts);
+        Assert.assertEquals(actualModuleTexts, expectedModuleTexts);
 
     }
 }
