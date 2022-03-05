@@ -12,10 +12,11 @@ public class TestBase {
     @BeforeMethod
     public void setUp() {
         Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+        //called method from 'Driver' Utils and config.prop
             }
 
     @AfterMethod
     public void tearDown() {
-        Driver.closeDriver();
+        Driver.closeDriver();//called method from 'Driver' Utils
     }
 }
