@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WebTableUtils {
 //* • Name: returnOrderDate ()
 // * • Return type: String
@@ -31,8 +34,16 @@ public class WebTableUtils {
         //compare actual and expected entry by customer
     }
 
-
+    public static List<String> getHeadersFromVehicleModelTable() {
+        List<WebElement> headerElements = Driver.getDriver().findElements(By.xpath("//thead[@class='grid-header']//th//span[1]"));
+        List<String> headerTitles = new ArrayList<>();
+        headerElements.forEach(k -> headerTitles.add(k.getText()));
+        return headerTitles;
+    }
 }
+
+
+
 /**
  * TC #2: Web table practice Task1 cont.
  * 1. Create a new class called WebTableUtils.
