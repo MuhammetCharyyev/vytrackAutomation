@@ -1,5 +1,7 @@
 package com.vytrack.pages;
 
+import com.vytrack.utilities.BrowserUtils;
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,22 +17,32 @@ public class VytrackLoginPage {
  //expression in () is saying "take 'Driver.getDriver()' and place to 'this' class"
     }
 
-//    @FindBy (xpath = "//button[.='Start']")//locate 'start' button
-//    public WebElement startButton;
+    @FindBy(className = "title")//locating 'loading' function
+    public WebElement loadingLabel;
 
-    @FindBy(css = "div#loading")//locating 'loading' function
-    public WebElement loadingBar;
-
-    @FindBy(css = "#username")//locating 'username' field
+    @FindBy(id = "prependedInput")//locating 'username' field
     public WebElement inputUsername;
 
-    @FindBy(css = "#pwd")//locating 'password' field
+    @FindBy(css = "input[id='prependedInput2']")//locating 'password' field
     public WebElement inputPassword;
 
-    @FindBy (xpath = "//button[.='Submit']")//locate 'submit' button
-    public WebElement submitButton;
+    @FindBy (xpath = "//button[id='_submit']")//locate 'submit' button
+    public WebElement loginButton;
 
-    @FindBy(id = "flash")
-    public WebElement errorMessage;//locating 'error' message
+    @FindBy(xpath = "//span[.='Remember me on this computer']")
+    public WebElement rememberMeMessage;//locating 'error' message
+
+    public void goToLoginPage(){
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+    }
+
+public void login(String userName, String password){
+   goToLoginPage();
+   inputPassword.sendKeys(userName);
+    BrowserUtils.sleep(2);
+    inputPassword.sendKeys(password);
+    BrowserUtils.sleep(2);
+    loadingLabel.click();
+}
 
 }
