@@ -26,7 +26,7 @@ public class VytrackLoginPage {
     @FindBy(css = "input[id='prependedInput2']")//locating 'password' field
     public WebElement inputPassword;
 
-    @FindBy (xpath = "//button[id='_submit']")//locate 'submit' button
+    @FindBy (xpath = "//button[@id='_submit']")//locate 'submit' button
     public WebElement loginButton;
 
     @FindBy(xpath = "//span[.='Remember me on this computer']")
