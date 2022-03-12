@@ -38,7 +38,7 @@ public class VytrackLoginPage {
 
 public void login(String userName, String password){
    goToLoginPage();
-   inputPassword.sendKeys(userName);
+   inputUsername.sendKeys(userName);
     BrowserUtils.sleep(2);
     inputPassword.sendKeys(password);
     BrowserUtils.sleep(2);
