@@ -43,6 +43,7 @@ public void login(String userName, String password){
     inputPassword.sendKeys(password);
     BrowserUtils.sleep(2);
     loadingLabel.click();
+
 }
 
 }
