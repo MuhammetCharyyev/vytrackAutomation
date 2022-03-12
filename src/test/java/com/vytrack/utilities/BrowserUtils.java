@@ -4,7 +4,12 @@ package com.vytrack.utilities;
 In this class only general utility methods that are not related to some specific page
  */
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.Set;
@@ -62,6 +67,45 @@ public class BrowserUtils {
 
     }
 
+    //Create hover(WebElement element) method, hovering the required place
+
+public static void hover(WebElement element){
+    Actions actions = new Actions(Driver.getDriver());
+    actions.moveToElement(element).pause(3).perform();
+    //(element) is changeable as we need
+}
+
+    //Create scrollToElement(WebElement element) method
+    public static void scrollToElement (WebElement element1){
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("argument[0].scrollIntoView(true);", element1);
+    }
+
+    //Create waituntilTitleDisplay(String title) method
+    public static void waitUntilTitleDisplay (String title){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+        //if only contains title
+        wait.until(ExpectedConditions.titleContains(title));
+        //exact matching title
+        wait.until(ExpectedConditions.titleIs(title));
+    }
+
+
+    //Create waituntilInvisibilityOfElement(WebElement element,int timeout) method
+
+    public static void waitUntilInvisibilityOfElement(WebElement element,int timeout){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        //'timeout' is to enter customer data for wait
+        wait.until(ExpectedConditions.invisibilityOf(element));
+        //wait while the customer element will be invisible
+    }
+
+    //Create doubleClick(WebElement element) method
+    public static void doubleClick(WebElement element){
+        new Actions(Driver.getDriver()).doubleClick(element).perform();
+        //method for double clicking customer element
+
+    }
 
 
 }
