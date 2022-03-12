@@ -74,7 +74,8 @@ public class VytrackUtils {
     public static void waitTillLoaderMaskDisappear() {
         try {
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
-            WebElement loaderMask = Driver.getDriver().findElement(By.cssSelector("div[class='loader-mask shown']"));
+            WebElement loaderMask = Driver.getDriver().findElement
+                    (By.cssSelector("div[class='loader-mask shown']"));
             wait.until(ExpectedConditions.invisibilityOf(loaderMask));
         } catch (Exception e) {
             e.printStackTrace();
